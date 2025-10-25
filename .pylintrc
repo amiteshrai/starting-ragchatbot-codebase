@@ -1,0 +1,42 @@
+[MASTER]
+# Use multiple processes to speed up Pylint
+jobs=1
+
+[MESSAGES CONTROL]
+# Disable specific warnings that are acceptable for this project
+disable=
+    too-few-public-methods,  # Pydantic models don't need many methods
+    too-many-instance-attributes,  # Config classes can have many attributes
+    invalid-name,  # Allow UPPER_CASE for config constants
+    too-many-locals,  # Complex document processing needs many variables
+    too-many-branches,  # Document parsing has many conditional paths
+    too-many-statements,  # Document processing is inherently complex
+    too-many-nested-blocks,  # Lesson parsing requires nested structure
+    import-error,  # Dependencies installed via uv
+    no-member,  # False positives with dynamic attributes
+    broad-except,  # Generic exception handling is acceptable for logging
+
+[FORMAT]
+# Set maximum line length to 120 (industry standard is 100)
+max-line-length=120
+
+# Allow the body of an if to be on the same line as the test if there is no else
+single-line-if-stmt=no
+
+[BASIC]
+# Good variable names which should always be accepted
+good-names=i,j,k,e,x,y,id,_,db
+
+[DESIGN]
+# Maximum number of arguments for function / method
+max-args=7
+
+# Maximum number of attributes for a class
+max-attributes=10
+
+# Maximum number of public methods for a class
+min-public-methods=1
+
+[SIMILARITIES]
+# Minimum lines number of a similarity
+min-similarity-lines=10
